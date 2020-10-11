@@ -120,8 +120,16 @@ function newsize()
             outer.appendChild(arr[i]);
         }
     }
-    
 }
 
+//Speed Setting
+document.getElementById('speed_scroller').addEventListener('input',getspeed);
+
+function getspeed()
+{
+    let speed=document.getElementById('speed_scroller').value;
+    speed++;
+    return speed;
+}
 
 
