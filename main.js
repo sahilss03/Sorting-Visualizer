@@ -3,7 +3,7 @@ let arr = [];
 let height=[];
 let outer = document.getElementById('outer');
 for (let i = 0; i < 200; i++) {
-    let random = Math.random() * 350;
+    let random = (Math.random() * 350) + 20;
     height[i]=random;
     let div = document.createElement('div');
     arr[i] = div;
@@ -17,7 +17,7 @@ document.getElementById('generate_newarray_button').addEventListener('click', ne
 //To change the size of the array
 let sizeofarray = document.getElementById('size_scroller'). addEventListener('input', newsize);
 let a = 1;
-function newsize() 
+function newsize()
 {
     sizeofarray = document.getElementById('size_scroller').value;
     if(sizeofarray>=0 && sizeofarray<20)
@@ -32,7 +32,7 @@ function newsize()
             arr.pop();
         }
         for (let i = 0; i < 15; i++) {
-            let random = Math.random() * 350;
+            let random = (Math.random() * 350) + 20;
             height[i]=random;
             let div = document.createElement('div');
             arr[i] = div;
@@ -52,7 +52,7 @@ function newsize()
             arr.pop();
         }
         for (let i = 0; i < 30; i++) {
-            let random = Math.random() * 350;
+            let random = (Math.random() * 350) + 20;
             height[i]=random;
             let div = document.createElement('div');
             arr[i] = div;
@@ -72,7 +72,7 @@ function newsize()
             arr.pop();
         }
         for (let i = 0; i < 50; i++) {
-            let random = Math.random() * 350;
+            let random = (Math.random() * 350) + 20;
             height[i]=random;
             let div = document.createElement('div');
             arr[i] = div;
@@ -92,7 +92,7 @@ function newsize()
             arr.pop();
         }
         for (let i = 0; i < 100; i++) {
-            let random = Math.random() * 350;
+            let random = (Math.random() * 350) + 20;
             height[i]=random;
             let div = document.createElement('div');
             arr[i] = div;
@@ -112,7 +112,7 @@ function newsize()
             arr.pop();
         }
         for (let i = 0; i < 200; i++) {
-            let random = Math.random() * 350;
+            let random = (Math.random() * 350) + 20;
             height[i]=random;
             let div = document.createElement('div');
             arr[i] = div;
@@ -131,5 +131,3 @@ function getspeed()
     speed++;
     return speed;
 }
-
-
