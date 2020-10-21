@@ -24,6 +24,7 @@ function newsize()
     {
         for(let i=0 ; i<arr.length ; i++)
         {
+            height.pop();
             outer.removeChild(arr[i]);
         }
         let n=arr.length;
@@ -49,6 +50,7 @@ function newsize()
         let n=arr.length;
         for(let i=0 ; i<n ; i++)
         {
+            height.pop();
             arr.pop();
         }
         for (let i = 0; i < 30; i++) {
@@ -69,6 +71,7 @@ function newsize()
         let n=arr.length;
         for(let i=0 ; i<n ; i++)
         {
+            height.pop();
             arr.pop();
         }
         for (let i = 0; i < 50; i++) {
@@ -89,6 +92,7 @@ function newsize()
         let n=arr.length;
         for(let i=0 ; i<n ; i++)
         {
+            height.pop();
             arr.pop();
         }
         for (let i = 0; i < 100; i++) {
@@ -109,6 +113,7 @@ function newsize()
         let n=arr.length;
         for(let i=0 ; i<n ; i++)
         {
+            height.pop();
             arr.pop();
         }
         for (let i = 0; i < 200; i++) {
