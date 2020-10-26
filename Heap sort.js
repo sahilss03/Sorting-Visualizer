@@ -2,7 +2,6 @@ document.getElementById('heap_sort_button').addEventListener('click', function H
     HeapSort(height);
 });
 let array_length;
-let t=0;
 function heap_root(height, i) {
    
     let left = 2 * i + 1;
@@ -22,8 +21,6 @@ function heap_root(height, i) {
         arr[i].style.height=`${height[i]}px`;
         heap_root(height, max);
     }
-
-
 }
 
 function swap(height, index_A, index_B) {

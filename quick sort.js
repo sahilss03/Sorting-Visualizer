@@ -1,6 +1,5 @@
 //QUICK SORT
 document.getElementById('quick_sort_button').addEventListener('click', quick);
-let t = 0;
 function quick() {
   t = 0;
   let l = 0, r = arr.length;

@@ -1,10 +1,16 @@
 //MERGE SORT
 document.getElementById('merge_sort_button').addEventListener('click', mergeSort);
-let t = 0;
 function mergeSort() {
     t = 0;
     let l = 0, r = arr.length - 1;
     MergeSort(arr, l, r);
+}
+function update(x,ind)
+{
+    setTimeout(() => {
+    console.log(x + " " + ind);
+    arr[ind].style.height=`${x}px`;
+}, t=t+5);
 }
 function Merge(arr, l, m, r) {
     let n1 = m - l + 1;
@@ -30,12 +36,12 @@ function Merge(arr, l, m, r) {
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             height[k] = L[i];
-            arr[k].style.height = `${height[k]}px`;
+            update(height[k],k);
             i++;
         }
         else {
             height[k] = R[j];
-            arr[k].style.height = `${height[k]}px`;
+            update(height[k],k);
             j++;
         }
         k++;
@@ -43,28 +49,25 @@ function Merge(arr, l, m, r) {
 
 
     while (i < n1) {
-        console.log(k + " " + arr.length);
         height[k] = L[i];
-        arr[k].style.height = `${height[k]}px`;
+        update(height[k],k);
         i++;
         k++;
     }
 
     while (j < n2) {
         height[k] = R[j];
-        arr[k].style.height = `${height[k]}px`;
+        update(height[k],k);
         j++;
         k++;
     }
 }
 function MergeSort(arr, l, r) {
     let mid;
-    setTimeout(() => {
         if (l < r) {
             mid = parseInt(l + (r - l) / 2);
             MergeSort(arr, l, mid);
             MergeSort(arr, mid + 1, r);
             Merge(arr, l, mid, r);
         }
-    }, t = t + 100);
 }
