@@ -2,50 +2,38 @@
 document.getElementById('selection_sort_button').addEventListener('click', selectionSort);
 
 function selectionSort() {
-  let time = 0;
+  disable();
+  t=0;
   let n = arr.length;
-  let s = getspeed();
-  let speed_var = 50 / s;
-  let k;
 
   for (let i = 0; i < n - 1; i++) {
 
-    setTimeout(() => {
-      arr[i].style.backgroundColor = 'red';
-    }, time = time + speed_var);
+    update_color("red", i);
     let k = i;
+
     for (let j = i + 1; j < n; j++) {
 
-      setTimeout(() => {
-        arr[j + 1].style.backgroundColor = 'yellow';
-      }, time = time + speed_var);
-
-      setTimeout(function () {
-        if (height[j] < height[k]) {
-          if (i != k) {
-            arr[k].style.backgroundColor = 'blue';
-          }
-          k = j;
-          arr[k].style.backgroundColor = 'red';
+      update_color("yellow", j + 1);
+      if (height[j] < height[k]) {
+        if (i != k) {
+          update_color("blue", k);
         }
-        arr[j + 1].style.backgroundColor = 'blue';
-
-      }, time = time + speed_var);
+        k = j;
+        update_color("red", k);
+      }
+      update_color("blue", j + 1);
 
     }
-    setTimeout(function () {
-      let t = height[k];
-      height[k] = height[i];
-      height[i] = t;
-      arr[k].style.backgroundColor = 'blue';
-      arr[i].style.height = `${height[i]}px`;
-      arr[k].style.height = `${height[k]}px`;
 
-      arr[i].style.backgroundColor = "green";
-    }, time = time + speed_var);
+    let t = height[k];
+    height[k] = height[i];
+    height[i] = t;
+    update_color("blue", k);
+    update_height(height[i], i);
+    update_height(height[k], k);
+    update_color("green", i);
+
   }
-  setTimeout(() => {
-    arr[n - 1].style.backgroundColor = 'green';
-  }, time = time + speed_var);
-
+  update_color("green", n - 1);
+  enable();
 }

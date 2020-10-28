@@ -1,73 +1,60 @@
 //MERGE SORT
 document.getElementById('merge_sort_button').addEventListener('click', mergeSort);
 function mergeSort() {
+    disable();
     t = 0;
-    let l = 0, r = arr.length - 1;
-    MergeSort(arr, l, r);
+    let l = 0, h = arr.length - 1;
+    MergeSort(l, h);
+    enable();
 }
-function update(x,ind)
-{
-    setTimeout(() => {
-    console.log(x + " " + ind);
-    arr[ind].style.height=`${x}px`;
-}, t=t+5);
-}
-function Merge(arr, l, m, r) {
-    let n1 = m - l + 1;
-    let n2 = r - m;
 
-    // Create temp arrays 
-    let L = [];
-    let R = [];
+function Merge(l, mid, h) {
+    let i = l,j = mid+1,k=l;
 
-    for (let i = 0; i < n1; i++)
-        L[i] = height[l + i];
+    let b=[];
 
-    for (let j = 0; j < n2; j++)
-        R[j] = height[m + 1 + j];
-
-
-    let i = 0;
-
-    let j = 0;
-
-    let k = l;
-
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            height[k] = L[i];
-            update(height[k],k);
+    while (i <= mid && j <= h) {
+        if (height[i] <= height[j]) {
+            b[k] = height[i];
+            update_color("red",i);
             i++;
         }
         else {
-            height[k] = R[j];
-            update(height[k],k);
+            b[k] = height[j];
+            update_color("red",j);
             j++;
         }
         k++;
     }
 
 
-    while (i < n1) {
-        height[k] = L[i];
-        update(height[k],k);
+    while (i <= mid) {
+        b[k] = height[i];
+        update_color("red",i);
         i++;
         k++;
     }
 
-    while (j < n2) {
-        height[k] = R[j];
-        update(height[k],k);
+    while (j <= h) {
+        b[k] = height[j];
+        update_color("red",j);
         j++;
         k++;
     }
+
+    for(i=l;i<=h;i++){
+      height[i] = b[i];
+      update_height(height[i],i);
+      update_color("green",i);
+    }
 }
-function MergeSort(arr, l, r) {
+function MergeSort(l, h) {
     let mid;
-        if (l < r) {
-            mid = parseInt(l + (r - l) / 2);
-            MergeSort(arr, l, mid);
-            MergeSort(arr, mid + 1, r);
-            Merge(arr, l, mid, r);
+        if (l < h) {
+            mid = Math.floor((l + h) / 2);
+            update_color("yellow",mid);
+            MergeSort(l, mid);
+            MergeSort(mid + 1, h);
+            Merge(l, mid, h);
         }
 }

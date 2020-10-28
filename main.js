@@ -136,3 +136,51 @@ function getspeed()
     speed++;
     return speed;
 }
+
+let t = 0;
+
+function update_height(x,ind)
+{
+  let s = getspeed();
+  let speed_var = 600 / s;
+    setTimeout(() => {
+    arr[ind].style.height=`${x}px`;
+}, t=t+speed_var);
+}
+
+function update_color(color,ind)
+{
+  let s = getspeed();
+  let speed_var = 600 / s;
+    setTimeout(() => {
+    arr[ind].style.backgroundColor=color;
+}, t=t+speed_var);
+}
+
+function disable(){
+  document.getElementById("bubble_sort_button").disabled = true;
+  document.getElementById("insertion_sort_button").disabled = true;
+  document.getElementById("heap_sort_button").disabled = true;
+  document.getElementById("selection_sort_button").disabled = true;
+  document.getElementById("merge_sort_button").disabled = true;
+  document.getElementById("quick_sort_button").disabled = true;
+  document.getElementById("size_scroller").disabled = true;
+  document.getElementById("speed_scroller").disabled = true;
+  document.getElementById("generate_newarray_button").disabled = true;
+}
+
+function enable(){
+  s = getspeed();
+  speed_var = 600 / s;
+  setTimeout(() => {
+  document.getElementById("bubble_sort_button").disabled = false;
+  document.getElementById("insertion_sort_button").disabled = false;
+  document.getElementById("heap_sort_button").disabled = false;
+  document.getElementById("selection_sort_button").disabled = false;
+  document.getElementById("merge_sort_button").disabled = false;
+  document.getElementById("quick_sort_button").disabled = false;
+  document.getElementById("size_scroller").disabled = false;
+  document.getElementById("speed_scroller").disabled = false;
+  document.getElementById("generate_newarray_button").disabled = false;
+},t = t + speed_var);
+}
